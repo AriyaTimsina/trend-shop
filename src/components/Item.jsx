@@ -1,4 +1,4 @@
-function Item({ product }) {
+  function Item({ product, onAddToCart }) {
   return (
     <div
       className="item-card"
@@ -50,11 +50,13 @@ function Item({ product }) {
         <span className="price">${product.price}</span>
 
         <button
-          className="add-to-bag-button"
-          disabled={product.stock === 0}
-        >
-          {product.stock === 0 ? "Sold Out" : "Add to Bag"}
-        </button>
+  className="add-to-bag-button"
+  disabled={product.stock === 0}
+  onClick={() => onAddToCart(product)}
+>
+  {product.stock === 0 ? "Sold Out" : "Add to Bag"}
+</button>
+  
       </div>
     </div>
   );

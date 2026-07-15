@@ -1,6 +1,6 @@
 import Item from "./Item";
 
-function ItemList({ products }) {
+function ItemList({ products, onAddToCart }) {
   if (products.length === 0) {
     return <h2>No products available</h2>;
   }
@@ -13,7 +13,11 @@ function ItemList({ products }) {
 
       <div className="items-grid">
         {products.map((product) => (
-          <Item key={product.id} product={product} />
+          <Item
+            key={product.id}
+            product={product}
+            onAddToCart={onAddToCart}
+          />
         ))}
       </div>
     </>
